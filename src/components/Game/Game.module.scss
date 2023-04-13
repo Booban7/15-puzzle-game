@@ -1,0 +1,50 @@
+.game {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  margin-top: 10%;
+
+  &__title {
+    color: #D2D7DF;
+  }
+
+  &__quote {
+    min-width: 400px ;
+    min-height: 120px;
+    color:#D2D7DF;
+  }
+
+  &__button{
+    display: inline-block;
+    padding: 15px;
+    margin: 5px;
+    width: 100px;
+    max-height: 40px;
+    background: #D2D7DF;
+    color: black;
+    font-family: inherit;
+    font-weight: 400;
+    font-size: 20px;
+    border-radius: 3px;
+    text-align: center;
+  }
+
+  @media (max-width: 500px) {
+    .button {
+      width: 70px;
+      max-height: 40px;
+    }
+  }
+
+  &__solved {
+    color: #D2D7DF;
+    font-size: 50px;
+  }
+
+  &__rules {
+    color: #D2D7DF;
+    margin: 20px;
+    max-width: 420px;
+  }
+}
+

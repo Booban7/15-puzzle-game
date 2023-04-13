@@ -1,1 +1,17 @@
-.Board {}
+.board {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 10px;
+  padding: 10px;
+  width: 420px;
+  height: 420px;
+  background-color: #8A897C;
+  border-radius: 10px;
+}
+
+@media (max-width: 500px) {
+  .board {
+    width: 300px;
+    height: 300px;
+  }
+}

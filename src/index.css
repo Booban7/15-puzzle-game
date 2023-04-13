@@ -2,9 +2,10 @@
 
 body {
   margin: 0;
-  font-family: 'Inter', sans-serif;
+  font-family: 'Open Sans', sans-serif;
+  background-color: #353535;
 }
 
 code {
-  font-family: 'Inter', sans-serif;
+  font-family: 'Open Sans', sans-serif;
 }

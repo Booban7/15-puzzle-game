@@ -1,0 +1,26 @@
+.tile {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2rem;
+  width: 80px;
+  height: 80px;
+  background-color: #D2D7DF;
+  border-radius: 10px;
+  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+}
+
+.tile:hover {
+  transform: scale(1.1);
+  box-shadow: 4px 4px 6px rgba(0, 0, 0, 0.3);
+}
+
+@media (max-width: 500px) {
+  .tile {
+    width: 60px;
+    height: 60px;
+    font-size: 1.5rem
+  }
+}

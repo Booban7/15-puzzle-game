@@ -1,12 +1,11 @@
-import React from 'react';
-
-import './App.css';
+import React from "react";
+import "./App.css";
+import Game from "./components/Game/Game";
 
 function App() {
   return (
     <div className="App">
-      <h1>Robin Davoust</h1>
-
+      <Game />
     </div>
   );
 }

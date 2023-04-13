@@ -1,12 +1,20 @@
-import React, { FC } from 'react';
-import styles from './Board.module.scss';
+import React from "react";
+import styles from "./Board.module.scss";
+import Tile from "../Tile/Tile";
 
-interface BoardProps {}
+interface BoardProps {
+  tiles: number[];
+  onClick: (index: number) => void;
+}
 
-const Board: FC<BoardProps> = () => (
-  <div className={styles.Board}>
-    Board Component
-  </div>
-);
+const Board: React.FC<BoardProps> = ({ tiles, onClick }) => {
+  return (
+    <div className={styles.board}>
+      {tiles.map((value, index) => (
+        <Tile key={index} value={value} onClick={() => onClick(index)} />
+      ))}
+    </div>
+  );
+};
 
 export default Board;
