@@ -47,7 +47,7 @@ const Game = () => {
     }
     if (
       (index === emptyIndex - 1 && emptyIndex % 4 !== 0) || // left
-      (index === emptyIndex + 1 && (emptyIndex + 1) % 4 !== 0) || // right
+      (index === emptyIndex + 1 && emptyIndex + (1 % 4) !== 0) || // right
       index === emptyIndex - 4 || // top
       index === emptyIndex + 4 // bottom
     ) {
@@ -72,7 +72,6 @@ const Game = () => {
 
   return (
     <div className={styles.game}>
-      <h1 className={styles.game__title}>15-Puzzle Game </h1>
       <div className={styles.game__quote}>
         {" "}
         {showQuote && currentQuote && (
@@ -84,18 +83,19 @@ const Game = () => {
           </div>
         )}
       </div>
-
+      {isSolved() ? (
+        <div className={styles.game__solved}>
+          Congratulations, you solved the puzzle and won 1 mill...nope just the
+          glory!
+        </div>
+      ) : null}
       <Board tiles={tiles} onClick={handleClick} />
       <div>
         <div className={styles.game__button} onClick={handleShuffle}>
           Shuffle
         </div>
       </div>
-      {isSolved() ? (
-        <div className={styles.game__solved}>
-          Congratulations, you solved the puzzle!
-        </div>
-      ) : null}
+
       <ul className={styles.game__rules}>
         <li>Move the tiles one at the time</li>
         <li>

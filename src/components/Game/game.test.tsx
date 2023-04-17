@@ -38,10 +38,13 @@ describe("Game", () => {
     ]);
   });
 
-  it("shows solved message when game is solved", () => {
-    const solveButton = wrapper.find(".game__button").at(1);
-    solveButton.simulate("click");
+  it("starts with shuffled tiles", () => {
+    const shuffleButton = wrapper.find(".game__button");
+    shuffleButton.simulate("click");
+
     const solvedMessage = wrapper.find(".game__solved").text();
-    expect(solvedMessage).toEqual("Congratulations, you solved the puzzle!");
+    expect(solvedMessage).toEqual(
+      "Congratulations, you solved the puzzle and won 1 mill...nope just the glory!"
+    );
   });
 });
