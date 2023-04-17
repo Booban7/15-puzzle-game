@@ -6,7 +6,6 @@ import { quotes } from "../Commentator/quotes";
 const GOAL_STATE = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 0];
 
 const shuffleArray = (array: number[]) => {
-  // Fisher-Yates shuffle algorithm
   for (let i = array.length - 1; i > 0; i--) {
     const j = Math.floor(Math.random() * (i + 1));
     [array[i], array[j]] = [array[j], array[i]];
@@ -31,16 +30,12 @@ const Game = () => {
   const [showQuote, setShowQuote] = useState(false);
 
   const handleClick = (index: number) => {
-    // Find the index of the empty tile
     const emptyIndex = tiles.indexOf(0);
 
-    // Increment the click counter
     const newCounter = counter + 1;
     setCounter(newCounter);
 
-    // Check if it's the 20th click
     if (newCounter % 20 === 0) {
-      // Get the next quote and update the current quote state
       const nextIndex = (newCounter / 20) % quotes.length;
       const nextQuote = quotes[nextIndex];
       setCurrentQuote(nextQuote);
@@ -48,17 +43,14 @@ const Game = () => {
       setTimeout(() => {
         setShowQuote(false);
         setCurrentQuote({ id: 0, text: "", author: "" });
-      }, 5000);
+      }, 8000);
     }
-
-    // Check if the clicked tile is adjacent to the empty tile
     if (
       (index === emptyIndex - 1 && emptyIndex % 4 !== 0) || // left
       (index === emptyIndex + 1 && (emptyIndex + 1) % 4 !== 0) || // right
       index === emptyIndex - 4 || // top
       index === emptyIndex + 4 // bottom
     ) {
-      // Swap the clicked tile with the empty tile
       const newTiles = [...tiles];
       [newTiles[index], newTiles[emptyIndex]] = [
         newTiles[emptyIndex],
@@ -69,19 +61,12 @@ const Game = () => {
   };
 
   const handleShuffle = () => {
-    // Shuffle the tiles
     const newTiles = [...tiles];
     shuffleArray(newTiles);
     setTiles(newTiles);
   };
 
-  const handleReset = () => {
-    // Set the tiles to the goal state
-    setTiles([...GOAL_STATE]);
-  };
-
   const isSolved = () => {
-    // Check if the tiles are in the goal state
     return tiles.toString() === GOAL_STATE.toString();
   };
 
@@ -104,9 +89,6 @@ const Game = () => {
       <div>
         <div className={styles.game__button} onClick={handleShuffle}>
           Shuffle
-        </div>
-        <div className={styles.game__button} onClick={handleReset}>
-          Solve
         </div>
       </div>
       {isSolved() ? (
